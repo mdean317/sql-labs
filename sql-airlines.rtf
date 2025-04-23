@@ -1,0 +1,17 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2820
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red26\green26\blue26;}
+{\*\expandedcolortbl;;\cssrgb\c13333\c13333\c13333;}
+\margl1440\margr1440\vieww37900\viewh18080\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs28 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 SELECT routes.airline_code, a.city AS origin, b.city as destination \'a0FROM routes, airports a, airports b WHERE routes.origin_code = a.iata_faa AND routes.dest_code = b.iata_faa AND a.city = 'New York' AND b.city = 'Paris';\
+\
+SELECT COUNT\'a0(*)\'a0 FROM routes, airports a, airports b WHERE routes.origin_code = a.iata_faa AND routes.dest_code = b.iata_faa AND a.city = 'New York' AND b.city = 'Paris';\
+\
+SELECT airlines.name FROM routes, airports a, airports b, airlines WHERE routes.origin_code = a.iata_faa AND routes.dest_code = b.iata_faa AND a.city = 'New York' AND b.city = 'Paris' AND airlines.iata = routes.airline_code;\
+\
+SELECT dest.city, COUNT (*) FROM routes, airports org, airports dest WHERE routes.origin_code = org.iata_faa AND org.city = 'New York' AND routes.dest_code = dest.iata_faa GROUP BY dest.city;\
+}
